@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Frontend Image
+name: Reverseproxy Image
 
 # Controls when the workflow will run
 on:
@@ -34,9 +34,9 @@ jobs:
         - name: Build and push
           uses: docker/build-push-action@v2
           with:
-            context: ./udagram-frontend
-            file: ./udagram-frontend/Dockerfile
+            context: ./udagram-reverseproxy
+            file: ./udagram-reverseproxy/Dockerfile
             push: true
-            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-frontend:latest
-            cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/udagram-frontend:buildcache
-            cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/udagram-frontend:buildcache,mode=max
+            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/udagram-reverseproxy:latest
+            cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/udagram-reverseproxy:buildcache
+            cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/udagram-reverseproxy:buildcache,mode=max
