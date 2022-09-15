@@ -5,18 +5,22 @@ metadata:
   labels:
     app: udagram-frontend
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app: udagram-frontend
+  replicas: 2
   template:
     metadata:
       labels:
         app: udagram-frontend
     spec:
       containers:
-      - image: katemamo/udagram-frontend
-        name: udagram-frontend
-        imagePullPolicy: Always  
+      - name: udagram-frontend
+        image: katemamo/udagram-frontend:latest
         ports:
         - containerPort: 8080
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
